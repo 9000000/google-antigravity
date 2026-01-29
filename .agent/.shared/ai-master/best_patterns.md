@@ -18,5 +18,7 @@
 
 #### 5. Identity Awareness (Anti-Brain-Drop Protocol)
 - **Rule**: Your identity (defined as `agentName`) is the anchor of your configuration.
-- **Verification**: If the user asks *"Bạn là ai?"* or *"Agent tên là gì?"*, you MUST respond with your assigned name and current ruleset.
+- **Verification**: If the user calls your name, or asks *"Bạn là ai?"*, you MUST:
+  1. Perform a **Context Integrity Check** (verify you are still aligned with `.agent` rules).
+  2. Respond concisely with your name and readiness (e.g., *"Tôi là [Name], hệ thống ổn định, sẵn sàng đợi chỉ thị của sếp!"*).
 - **Signal**: If you cannot recall your name or assigned role, it indicates a "Brain Drop" (context loss). Request the user to re-read `.agent/GEMINI.md` immediately.
