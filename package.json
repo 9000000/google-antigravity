@@ -1,59 +1,26 @@
 {
   "name": "antigravity-ide",
-  "version": "3.0.1",
-  "description": "The Ultimate AI Agent IDE with 550+ skills. Gemini-compatible. Create production-ready AI Agent projects with interactive setup.",
+  "version": "1.1.0",
+  "description": "The Ultimate AI Agent Brain - Rules, Skills, and Workflows",
   "main": "cli/index.js",
   "bin": {
-    "antigravity-ide": "./cli/index.js",
-    "agide": "./cli/index.js"
+    "antigravity": "./cli/index.js",
+    "antigravity-setup": "./setup.js",
+    "antigravity-update": "./update.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Dokhacgiakhoa/google-antigravity.git"
+  "scripts": {
+    "setup": "node ./setup.js",
+    "update": "node ./update.js",
+    "create": "node ./cli/index.js create"
   },
-  "homepage": "https://github.com/Dokhacgiakhoa/google-antigravity#readme",
-  "bugs": {
-    "url": "https://github.com/Dokhacgiakhoa/google-antigravity/issues"
-  },
-  "keywords": [
-    "antigravity-ide",
-    "ai-agent",
-    "ai-ide",
-    "agent-framework",
-    "gemini",
-    "gemini-ai",
-    "google-gemini",
-    "cli",
-    "skills",
-    "ai-development",
-    "550-skills",
-    "rag",
-    "llm",
-    "agent-orchestration"
-  ],
-  "files": [
-    "cli/",
-    ".agent/",
-    "web/",
-    "LICENSE",
-    "README.md",
-    "COPYRIGHT.md"
-  ],
   "dependencies": {
-    "boxen": "^5.1.2",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
-    "figlet": "^1.7.0",
     "fs-extra": "^11.2.0",
     "gradient-string": "^2.0.2",
     "ora": "^5.4.1",
-    "prompts": "^2.4.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.55.0"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+    "prompts": "^2.4.2",
+    "shelljs": "^0.8.5"
   },
   "author": "Dokhacgiakhoa",
   "license": "MIT"

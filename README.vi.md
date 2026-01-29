@@ -1,43 +1,30 @@
-# Antigravity IDE
+# Google Antigravity
 
 [English](./README.md) | [Tiếng Việt](./README.vi.md)
 
-> **Framework AI Agent Tối Ưu.**  
-> *Xây dựng trên nền tảng vững chắc của [Antigravity Kit](https://github.com/vudovn/antigravity-kit).*
+> **Bộ Não AI Agent Tối Ưu.**  
+> *Bộ sưu tập toàn diện các Quy tắc, Kỹ năng và Quy trình làm việc cho AI Agent hiện đại.*
 
 [![Giấy Phép: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Nâng Cấp](https://img.shields.io/badge/Antigravity-Enhanced-blueviolet)]()
 
-**Antigravity IDE** là phiên bản nâng cấp mạnh mẽ của Antigravity Kit. Nó biến một Agent template cơ bản thành hệ sinh thái production-ready hoàn chỉnh, giúp bạn xây dựng AI Agents chuyên nghiệp.
+**Google Antigravity** là động cơ trí tuệ cốt lõi để xây dựng các AI Agent. Nó cung cấp công cụ CLI (`npx`) giúp bạn tạo lập tức thì các dự án sẵn sàng cho Agent với bộ kỹ năng chuyên nghiệp toàn diện và các quy tắc vận hành chặt chẽ.
 
 ## 📦 Cài Đặt
 
-### Bắt đầu nhanh (Khuyên dùng)
+### Bắt đầu nhanh
 
 Mở Terminal và chạy lệnh:
 
 ```sh
-npx antigravity-ide create my-agent-project
+npx google-antigravity create my-agent-project
 ```
 
-Làm theo hướng dẫn tương tác để tùy chỉnh:
-- **Template**: Minimal / Standard / Full
-- **Agent Rules**: Strict / Balanced / Flexible  
-- **Skills**: Chọn từ 6 categories (webdev, mobile, devops, security, ai, data)
-- **Workflows**: Git, Testing, Deployment, Code Review
-- **Dashboard**: Giao diện Web Next.js (tùy chọn)
+Làm theo hướng dẫn để tùy chỉnh Agent của bạn.
 
 ### Bỏ qua câu hỏi (dùng mặc định)
 
 ```sh
-npx antigravity-ide create my-project --skip-prompts
-```
-
-### Cài Đặt Toàn Cục
-
-```sh
-npm install -g antigravity-ide
-antigravity-ide create my-project
+npx google-antigravity create my-project --skip-prompts
 ```
 
 ## 🤖 Tương thích với Google Gemini
@@ -63,57 +50,29 @@ const model = genAI.getGenerativeModel({
 
 👉 Xem [GEMINI.md](./GEMINI.md) để biết hướng dẫn chi tiết.
 
-## 🚀 Điểm nổi bật
+## 🚀 Tính năng Cốt lõi
 
-### 🧠 **2500+ Files, 550+ AI Skills**
-- **Core Skills**: Hơn 550 skills production-ready cho AI agent
-- **Gemini-Ready**: Tương thích 100% với Google Gemini AI
-- **Universal Format**: Dùng được với mọi AI model (Claude, GPT, Gemini, Llama)
-- **8 Categories**: Development, DevOps, Database, AI/ML, Security, Design, Business, Tools
+### 🧠 **Bộ Não Agent (.agent)**
+Trái tim của hệ thống là thư mục `.agent`, chứa:
+- **Kỹ năng Chuyên nghiệp**: Các kỹ năng sẵn sàng cho Production (Dev, DevOps, Security, Data).
+- **Tương thích Đa nền tảng**: Tối ưu hóa cho **Gemini Pro**, **Claude 3.5 Sonnet**, và **GPT-4o**.
+- **Quy tắc Vận hành**: Các giao thức định nghĩa sẵn để Agent hoạt động an toàn và hiệu quả.
 
-### 🎨 **CLI đẹp mắt với hiệu ứng Gradient**
-- **Gradient UI**: Banner ASCII art rainbow, output gọn gàng
-- **Interactive Setup**: Chọn skills, workflows và templates dễ dàng
-- **Tạo nhanh**: Chỉ cần `npx antigravity-ide create my-project`
-
-### 📦 **Cấu trúc dự án được cải tiến**
-```text
-antigravity-ide/
-├── .agent/           # 550+ Skills (từ awesome-skills)
-├── web/              # Next.js Dashboard
-├── lab/              # Experimental Features
-├── test/             # Testing Suite
-└── cli/              # CLI Tool (gradient UI)
-```
-
-### ✨ **Điểm đặc biệt**
-- **AI-Agnostic**: Skills hoạt động với mọi LLM (Gemini, Claude, GPT...)
-- **Production-Ready**: Được kiểm chứng bởi 500+ contributors
-- **Comprehensive**: Từ frontend đến AI agents, security đến marketing
-- **Well-Documented**: Mỗi skill đều có hướng dẫn và ví dụ cụ thể
+### ⚡ **Khởi tạo Dự án (CLI)**
+Công cụ CLI nhẹ nhàng để bootstrap dự án mới:
+- **Cài đặt Tương tác**: Chọn độ nghiêm ngặt của Agent (Strict/Balanced/Flexible).
+- **Lựa chọn Kỹ năng**: Tự động cài đặt các bộ kỹ năng phù hợp (ví dụ: Web Dev + AI).
+- **Nhanh gọn**: Tối giản, không cài đặt các thành phần dư thừa.
 
 ## 📂 Cấu trúc dự án
 
 ```text
 antigravity-ide/
 ├── .agent/           # 🧠 BỘ NÃO: Config & 550+ Skills
-├── web/              # 🖥️ GIAO DIỆN: Next.js Dashboard
-├── lab/              # 🧪 THÍ NGHIỆM: Features thử nghiệm
-├── test/             # 🛡️ KIỂM THỬ: Testing & Benchmarks
 └── cli/              # ⚡ CLI TOOL: Tạo project
 ```
 
-## 🛠️ Bắt đầu sử dụng
 
-Đây là monorepo. Để chạy giao diện chính:
-
-```bash
-cd web
-npm install
-npm run dev
-```
-
-Truy cập `http://localhost:3000` để xem Dashboard.
 
 ## 📚 Tài liệu
 

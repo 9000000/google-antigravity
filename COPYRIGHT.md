@@ -31,23 +31,28 @@ Dự án này được xây dựng dựa trên các dự án mã nguồn mở sa
 
 ### 1. Antigravity Kit (Core Framework)
 - **Tác giả gốc**: VUDOVN
-- **Repository**: [vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit)
+- **Repositories**: 
+  - [vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit) (Core)
+  - [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) (Skills Database)
 - **Giấy phép**: MIT License
 - **Phần sử dụng**:
-  - Cấu trúc framework cơ bản
-  - Hệ thống Agent và Skill
-  - 2500+ kỹ năng từ `antigravity-awesome-skills`
-  - Module thử nghiệm từ `antigravity-lab`
-  - Hệ thống testing từ `antigravity-test`
+  - Cấu trúc framework cơ bản (VUDOVN)
+  - Hệ thống 2500+ kỹ năng chuyên sâu (SICKN33)
+  - Module Lab và Test
 
-### 2. Các Thư Viện Phụ Thuộc
-Dự án sử dụng các thư viện JavaScript/TypeScript theo giấy phép MIT:
-- **Next.js** (Vercel) - Framework React cho Web
-- **React** (Meta) - Thư viện giao diện người dùng
-- **Tailwind CSS** - CSS Framework
-- **Shadcn/ui** - Component library
+### 2. Tiêu Chuẩn & Phương Pháp Luận Ngành
+Dự án tích hợp tri thức và quy chuẩn từ:
+- **OWASP**: Các mẫu quét và phòng chống lỗ hổng bảo mật.
+- **SOLID & Clean Code**: Nguyên tắc thiết kế kiến trúc phần mềm chất lượng cao.
+- **PDCA & Socratic Questioning**: Phương pháp luận vận hành và khám phá yêu cầu.
 
-Danh sách đầy đủ xem tại `package.json`.
+### 3. Cốt Lõi Công Nghệ (Core Stack)
+Sử dụng các thư viện mã nguồn mở theo giấy phép MIT:
+- **Next.js** (Vercel), **React** (Meta), **Tailwind CSS**.
+- **Shadcn/ui**, **Lucide Icons**.
+
+### 4. Tham Chiếu Cộng Đồng
+Các best practices được tham chiếu và đối soát với cộng đồng J2TEAM và hệ sinh thái Unikorn.vn.
 
 ---
 

@@ -21,19 +21,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ================================================================================
-THIRD PARTY LICENSE NOTICES
+THIRD PARTY NOTICES & ATTRIBUTIONS
 ================================================================================
 
-This project incorporates code from "Antigravity Kit", "Antigravity Awesome Skills", 
-"Antigravity Lab", and "Antigravity Test".
+This project incorporates components from the following open source projects:
 
-Original Project: Antigravity Kit
-Original Author: VUDOVN
-Link: https://github.com/vudovn/antigravity-kit
+1. Antigravity Kit
+   - Author: VUDOVN
+   - Link: https://github.com/vudovn/antigravity-kit
+   - License: MIT
 
-MIT License
+2. antigravity-awesome-skills
+   - Author: sickn33
+   - Link: https://github.com/sickn33/antigravity-awesome-skills
+   - License: MIT
+
+---
+
+The MIT License (MIT)
 
 Copyright (c) 2026 VUDOVN
+Copyright (c) 2026 sickn33
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

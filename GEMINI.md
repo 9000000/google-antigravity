@@ -66,6 +66,14 @@ const result = await chat.sendMessage("Build a RAG system with TypeScript");
 
 ---
 
+## 📁 Resource Inheritance (NEW)
+
+This workspace is **Global-Powered**. Do not repeat standard rules/skills in local files.
+1.  **Primary Source**: `~/.antigravity/` (Global Master Skills & Rules)
+2.  **Secondary Source**: `.agent/` (Project-specific Overrides only)
+
+If a workflow/skill is found in Global, use it as the default.
+
 ## 🧠 Recommended Skills for Gemini
 
 ### Core AI Skills
