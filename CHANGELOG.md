@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.0] - 2026-01-29
+## [3.5.1] - 2026-01-29
 
 ### Added
 - **New Interactive CLI**: Completely revamped project creation experience (`antigravity create`).
