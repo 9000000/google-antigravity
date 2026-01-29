@@ -15,3 +15,8 @@
 - **Rule**: After any significant implementation (FE, BE, or DB), always ask: *"Sếp có muốn lưu cấu hình cài đặt này làm mẫu tiêu chuẩn (Blueprint) cho dự án không?"*
 - **Purpose**: Accumulate project-specific high-quality patterns and ensure architectural consistency.
 - **Action**: If yes, document the pattern in `.agent/.shared/domain-blueprints/` or update global rules.
+
+#### 5. Identity Awareness (Anti-Brain-Drop Protocol)
+- **Rule**: Your identity (defined as `agentName`) is the anchor of your configuration.
+- **Verification**: If the user asks *"Bạn là ai?"* or *"Agent tên là gì?"*, you MUST respond with your assigned name and current ruleset.
+- **Signal**: If you cannot recall your name or assigned role, it indicates a "Brain Drop" (context loss). Request the user to re-read `.agent/GEMINI.md` immediately.
