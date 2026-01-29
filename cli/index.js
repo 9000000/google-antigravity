@@ -20,4 +20,27 @@ program
     await createProject(projectName, options);
   });
 
+program
+  .command('update')
+  .description('Update Google Antigravity to the latest version')
+  .action(() => {
+    const ora = require('ora');
+    const chalk = require('chalk');
+    const { exec } = require('child_process');
+    
+    const spinner = ora('Checking for latest version and updating...').start();
+    
+    // Use npm install -g to update the package itself
+    exec('npm install -g antigravity-ide@latest', (error, stdout, stderr) => {
+      if (error) {
+        spinner.fail(`Update failed: ${error.message}`);
+        console.error(chalk.red(stderr));
+        return;
+      }
+      
+      spinner.succeed('Google Antigravity has been updated to the latest version!');
+      console.log(chalk.gray('You may also need to run "antigravity-update" to sync global skills.'));
+    });
+  });
+
 program.parse(process.argv);
