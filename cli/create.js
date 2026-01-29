@@ -97,6 +97,12 @@ async function copyBaseStructure(projectPath, config) {
   const geminiContent = generateGeminiMd(config.rules);
   fs.writeFileSync(path.join(agentDir, 'GEMINI.md'), geminiContent);
 
+  // Copy START_HERE.md (onboarding guide)
+  const startHereSource = path.join(__dirname, '..', '.agent', 'START_HERE.md');
+  if (fs.existsSync(startHereSource)) {
+    fs.copyFileSync(startHereSource, path.join(agentDir, 'START_HERE.md'));
+  }
+
   // Copy basic files
   const files = ['README.md', 'LICENSE', 'COPYRIGHT.md', '.gitignore'];
   const rootDir = path.join(__dirname, '..');
@@ -253,12 +259,25 @@ function printSuccessMessage(projectName, config) {
   console.log(chalk.gray('  Skills:    ') + chalk.cyan(config.skillCategories?.join(', ') || 'none'));
   console.log(chalk.gray('  Dashboard: ') + (config.includeDashboard ? chalk.green('✓') : chalk.gray('—')));
   
-  // Next steps - super concise
+  // AI Activation Instructions (NEW)
   console.log('');
-  console.log(gradient.teen('━'.repeat(60)));
-  console.log(chalk.bold('🚀 Run'));
-  console.log(gradient.passion(`  cd ${projectName} && cd web && npm install && npm run dev`));
-  console.log(gradient.teen('━'.repeat(60)));
+  console.log(gradient.pastel('━'.repeat(60)));
+  console.log(chalk.bold.cyan('🤖 AI Agent Activation'));
+  console.log('');
+  console.log(chalk.gray('  1. Open project:  ') + chalk.white(`cd ${projectName}`));
+  console.log(chalk.gray('  2. Open AI chat:  ') + chalk.white('(Claude, Gemini, etc.)'));
+  console.log(chalk.gray('  3. Activate:      ') + chalk.green('Read .agent/START_HERE.md'));
+  console.log('');
+  console.log(chalk.dim('     The AI will load all 550+ skills and rules automatically.'));
+  console.log(gradient.pastel('━'.repeat(60)));
+  
+  // Next steps - web dashboard (if included)
+  if (config.includeDashboard) {
+    console.log('');
+    console.log(chalk.bold('🚀 Run Web Dashboard'));
+    console.log(gradient.passion(`  cd ${projectName}/web && npm install && npm run dev`));
+  }
+  
   console.log('');
 }
 
