@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
@@ -28,7 +30,7 @@ async function setup() {
     
     console.log(gradient.rainbow.multiline(branding));
     console.log(gradient.atlas('━'.repeat(60)));
-    console.log(chalk.gray(`  Google Antigravity • Global Setup Wizard • v3.5.30`));
+    console.log(chalk.gray(`  Google Antigravity • Global Setup Wizard • v3.5.32`));
     console.log(chalk.gray('  Developed with 💡 by Dokhacgiakhoa'));
     console.log(gradient.atlas('━'.repeat(60)) + '\n');
     console.log(chalk.bold.hex('#00ffee')('🚀 Antigravity Global Setup Starting...\n'));
@@ -45,11 +47,7 @@ async function setup() {
         } catch (e2) {}
     }
 
-    if (!hasPython) {
-        console.log(chalk.yellow('⚠️ Warning: Python was not detected on your system.'));
-        console.log(chalk.gray('   Some "Pro" features (automated scans, evaluators) require Python.'));
-        console.log(chalk.gray('   You can still use the core IDE, but it is recommended to install Python later.\n'));
-    }
+    // Silent check - we will warn later if they select Advanced Mode
 
     // Interactive Prompts
     const response = await prompts([
@@ -80,7 +78,6 @@ async function setup() {
             type: 'text',
             name: 'agentName',
             message: (prev, values) => values.lang === 'vi' ? 'Đặt tên định danh cho AI Agent của bạn:' : 'Name your AI Agent:',
-            initial: 'Antigravity',
             validate: value => value.length < 2 ? 'Minimum 2 chars' : true
         },
         {
@@ -143,7 +140,52 @@ async function setup() {
     }
     fs.writeFileSync(path.join(GLOBAL_DIR, '.config.json'), JSON.stringify({ lang, engineMode, agentName, projectScale, industryDomain }, null, 2));
 
-    // 5. Sync Files (GLOBAL ALWAYS FULL ENTERPRISE)
+    // 5. Smart Dependency Check (Post-Selection)
+    if (engineMode === 'advanced' && !hasPython) {
+        console.log('\n' + boxen(
+            lang === 'vi' 
+            ? chalk.bold.red('⚠️  CẢNH BÁO: CHƯA CÀI ĐẶT PYTHON!') + '\n\n' +
+              chalk.white('Chế độ "Advanced" yêu cầu Python để chạy các thuật toán AI.') + '\n' +
+              chalk.yellow('Vui lòng chạy lệnh sau để cài đặt tự động:')
+            : chalk.bold.red('⚠️  WARNING: PYTHON NOT DETECTED!') + '\n\n' +
+              chalk.white('Advanced Mode requires Python for AI algorithms.') + '\n' +
+              chalk.yellow('Please run the following command to install:'),
+            { padding: 1, borderColor: 'red', borderStyle: 'double' }
+        ));
+
+        let installCmd = '';
+        if (os.platform() === 'win32') {
+            // Recommendation: Python 3.13 (Latest - 1 strategy for Max Stability in 2026)
+            installCmd = 'winget install Python.Python.3.13';
+        } else if (os.platform() === 'darwin') {
+            installCmd = 'brew install python@3.13';
+        } else {
+            installCmd = 'sudo apt update && sudo apt install python3.13 python3-pip';
+        }
+
+        console.log(chalk.black.bgCyan.bold(`  ${installCmd}  `) + '\n');
+        
+        // AI Delegation Prompt (New Feature)
+        const checkMark = chalk.green('✔');
+        const promptText = lang === 'vi' 
+            ? `Hãy cài đặt Python 3.13 giúp tôi bằng lệnh: ${installCmd}`
+            : `Please install Python 3.13 for me using: ${installCmd}`;
+
+        console.log(boxen(
+            (lang === 'vi' ? chalk.bold.yellow('🤖 COPY PROMPT NÀY GỬI CHO AI AGENT:') : chalk.bold.yellow('🤖 COPY THIS PROMPT FOR YOUR AI AGENT:')) + 
+            '\n\n' + chalk.white(promptText),
+            { padding: 1, borderColor: 'yellow', borderStyle: 'round', title: 'Delegate to AI / Ủy quyền cho AI' }
+        ));
+
+        console.log(chalk.gray(lang === 'vi' 
+            ? '(Đã chọn phiên bản Stable N-1 để đảm bảo tương thích tốt nhất)' 
+            : '(Selected Stable N-1 version for maximum compatibility)'));
+        console.log(chalk.gray(lang === 'vi' ? '(Sau khi cài xong, hãy chạy lại setup)' : '(After installation, please run setup again)'));
+        
+        // Optional: Ask to auto-install? (Risk of permission issues, stick to suggestion for safety as per "Safety First" rule)
+    }
+
+    // 6. Sync Files (GLOBAL ALWAYS FULL ENTERPRISE)
     console.log('\n🔄 Checking Global Cache (Update if needed)...');
     syncFolders.forEach(folder => {
         const src = path.join(SOURCE_DIR, folder);
@@ -163,7 +205,7 @@ async function setup() {
     });
     console.log('✅ Global Cache is up-to-date (Full Enterprise Mode).');
 
-    // 6. Initialize Workspace (Apply Scale Logic to Local Project)
+    // 7. Initialize Workspace (Apply Scale Logic to Local Project)
     // Only copy specific rules to current directory based on Scale
     console.log(`\n📂 Initializing Workspace (Scale: ${projectScale.toUpperCase()})...`);
     
@@ -203,7 +245,7 @@ async function setup() {
          console.log(`✅ Applied Full Enterprise rules to Workspace.`);
     }
 
-    // 7. Inject Config into Workspace Rules (Agent Name & Domain)
+    // 8. Inject Config into Workspace Rules (Agent Name & Domain)
     const geminiRulePath = path.join(localRulesDir, 'GEMINI.md');
     if (fs.existsSync(geminiRulePath)) {
         let content = fs.readFileSync(geminiRulePath, 'utf-8');
@@ -228,7 +270,7 @@ async function setup() {
         // console.log(`✅ Configured GEMINI.md with Agent Name & Industry context.`); // Suppress simple log
     }
 
-    // 3. Localize Workflows
+    // 3. Localize Workflows (Kept logic index same for simplicity, technically step 9 now)
     localizeWorkflows(lang);
 
     // FINAL SUMMARY (Premium Style)

@@ -2,7 +2,7 @@
 
 **Last Updated:** 2026-01-29  
 **Total Skills:** 22 Master Skills (Encapsulating 550+ Capabilities/Patterns)  
-**Source:** [antigravity-awesome-skills](https://github.com/vudovn/antigravity-awesome-skills)
+**Source:** [Dokhacgiakhoa/google-antigravity](https://github.com/Dokhacgiakhoa/google-antigravity)
 
 ---
 
@@ -267,11 +267,11 @@ Instructions, examples, and best practices...
 ## 🎯 Next Steps
 
 1. Browse skills in `.agent/skills/` directory
-2. See [GEMINI.md](./GEMINI.md) for Gemini-specific usage
+2. See [GEMINI_GUIDE.md](./GEMINI_GUIDE.md) for Gemini-specific usage
 3. Check examples in `/lab` directory
 4. Read skill documentation for detailed guides
 
 ---
 
-*For the complete list of all 550 skills, explore the `.agent/skills` directory or visit [antigravity-awesome-skills](https://github.com/vudovn/antigravity-awesome-skills)*
+*For the complete list of all 550 skills, explore the `.agent/skills` directory or visit [Dokhacgiakhoa/google-antigravity](https://github.com/Dokhacgiakhoa/google-antigravity)*
 

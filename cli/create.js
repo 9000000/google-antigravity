@@ -280,11 +280,15 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 `;
-        fs.writeFileSync(editorconfigPath, editorConfig);
-        console.log(chalk.green('  ✓ Created .editorconfig'));
-    } else {
-        console.log(chalk.yellow('  ℹ️  Skipped .editorconfig (already exists)'));
-    }
+  fs.writeFileSync(path.join(projectPath, '.editorconfig'), editorConfig);
+
+  // Generate .gitattributes
+  const gitAttributes = `* text=auto eol=lf
+*.js text eol=lf
+*.sh text eol=lf
+bin/* text eol=lf
+`;
+  fs.writeFileSync(path.join(projectPath, '.gitattributes'), gitAttributes);
 }
 
 function generateGeminiMd(rules, language = 'en', industry = 'other', agentName = 'Antigravity') {
@@ -338,6 +342,12 @@ This file controls the behavior of your AI Agent.
 
 **Auto-run Commands**: ${config.autoRun}
 **Confirmation Level**: ${config.confirmLevel}
+
+## 🌐 Language Protocol
+
+1. **Communication**: Use **ENGLISH**.
+2. **Artifacts**: Write content in **ENGLISH**.
+3. **Code**: Use **ENGLISH** for all variables, functions, and comments.
 
 ## Core Capabilities
 
@@ -394,6 +404,14 @@ Tệp này kiểm soát hành vi của AI Agent.
 
 **Tự động chạy lệnh**: ${config.autoRun}
 **Mức độ xác nhận**: ${config.confirmLevel === 'Minimal confirmation, high autonomy' ? 'Tối thiểu, tự chủ cao' : 'Hỏi trước các tác vụ quan trọng'}
+
+## 🌐 Giao thức Ngôn ngữ (Language Protocol)
+
+1. **Giao tiếp & Suy luận**: Sử dụng **TIẾNG VIỆT** (Bắt buộc).
+2. **Tài liệu (Artifacts)**: Viết nội dung file .md (Plan, Task, Walkthrough) bằng **TIẾNG VIỆT**.
+3. **Mã nguồn (Code)**:
+   - Tên biến, hàm, file: **TIẾNG ANH** (camelCase, snake_case...).
+   - Comment trong code: **TIẾNG ANH** (để chuẩn hóa).
 
 ## Khả năng cốt lõi
 
@@ -475,5 +493,6 @@ function printSuccessMessage(projectName, config) {
 }
 
 module.exports = {
-    createProject
+  createProject,
+  generateGeminiMd
 };
