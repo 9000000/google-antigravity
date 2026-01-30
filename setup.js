@@ -162,6 +162,19 @@ async function setup() {
         }
 
         console.log(chalk.black.bgCyan.bold(`  ${installCmd}  `) + '\n');
+        
+        // AI Delegation Prompt (New Feature)
+        const checkMark = chalk.green('✔');
+        const promptText = lang === 'vi' 
+            ? `Hãy cài đặt Python 3.13 giúp tôi bằng lệnh: ${installCmd}`
+            : `Please install Python 3.13 for me using: ${installCmd}`;
+
+        console.log(boxen(
+            (lang === 'vi' ? chalk.bold.yellow('🤖 COPY PROMPT NÀY GỬI CHO AI AGENT:') : chalk.bold.yellow('🤖 COPY THIS PROMPT FOR YOUR AI AGENT:')) + 
+            '\n\n' + chalk.white(promptText),
+            { padding: 1, borderColor: 'yellow', borderStyle: 'round', title: 'Delegate to AI / Ủy quyền cho AI' }
+        ));
+
         console.log(chalk.gray(lang === 'vi' 
             ? '(Đã chọn phiên bản Stable N-1 để đảm bảo tương thích tốt nhất)' 
             : '(Selected Stable N-1 version for maximum compatibility)'));
