@@ -45,11 +45,7 @@ async function setup() {
         } catch (e2) {}
     }
 
-    if (!hasPython) {
-        console.log(chalk.yellow('⚠️ Warning: Python was not detected on your system.'));
-        console.log(chalk.gray('   Some "Pro" features (automated scans, evaluators) require Python.'));
-        console.log(chalk.gray('   You can still use the core IDE, but it is recommended to install Python later.\n'));
-    }
+    // Silent check - we will warn later if they select Advanced Mode
 
     // Interactive Prompts
     const response = await prompts([
@@ -143,7 +139,35 @@ async function setup() {
     }
     fs.writeFileSync(path.join(GLOBAL_DIR, '.config.json'), JSON.stringify({ lang, engineMode, agentName, projectScale, industryDomain }, null, 2));
 
-    // 5. Sync Files (GLOBAL ALWAYS FULL ENTERPRISE)
+    // 5. Smart Dependency Check (Post-Selection)
+    if (engineMode === 'advanced' && !hasPython) {
+        console.log('\n' + boxen(
+            lang === 'vi' 
+            ? chalk.bold.red('⚠️  CẢNH BÁO: CHƯA CÀI ĐẶT PYTHON!') + '\n\n' +
+              chalk.white('Chế độ "Advanced" yêu cầu Python để chạy các thuật toán AI.') + '\n' +
+              chalk.yellow('Vui lòng chạy lệnh sau để cài đặt tự động:')
+            : chalk.bold.red('⚠️  WARNING: PYTHON NOT DETECTED!') + '\n\n' +
+              chalk.white('Advanced Mode requires Python for AI algorithms.') + '\n' +
+              chalk.yellow('Please run the following command to install:'),
+            { padding: 1, borderColor: 'red', borderStyle: 'double' }
+        ));
+
+        let installCmd = '';
+        if (os.platform() === 'win32') {
+            installCmd = 'winget install Python.Python.3.11';
+        } else if (os.platform() === 'darwin') {
+            installCmd = 'brew install python';
+        } else {
+            installCmd = 'sudo apt update && sudo apt install python3 python3-pip';
+        }
+
+        console.log(chalk.black.bgCyan.bold(`  ${installCmd}  `) + '\n');
+        console.log(chalk.gray(lang === 'vi' ? '(Sau khi cài xong, hãy chạy lại setup)' : '(After installation, please run setup again)'));
+        
+        // Optional: Ask to auto-install? (Risk of permission issues, stick to suggestion for safety as per "Safety First" rule)
+    }
+
+    // 6. Sync Files (GLOBAL ALWAYS FULL ENTERPRISE)
     console.log('\n🔄 Checking Global Cache (Update if needed)...');
     syncFolders.forEach(folder => {
         const src = path.join(SOURCE_DIR, folder);
@@ -163,7 +187,7 @@ async function setup() {
     });
     console.log('✅ Global Cache is up-to-date (Full Enterprise Mode).');
 
-    // 6. Initialize Workspace (Apply Scale Logic to Local Project)
+    // 7. Initialize Workspace (Apply Scale Logic to Local Project)
     // Only copy specific rules to current directory based on Scale
     console.log(`\n📂 Initializing Workspace (Scale: ${projectScale.toUpperCase()})...`);
     
@@ -203,7 +227,7 @@ async function setup() {
          console.log(`✅ Applied Full Enterprise rules to Workspace.`);
     }
 
-    // 7. Inject Config into Workspace Rules (Agent Name & Domain)
+    // 8. Inject Config into Workspace Rules (Agent Name & Domain)
     const geminiRulePath = path.join(localRulesDir, 'GEMINI.md');
     if (fs.existsSync(geminiRulePath)) {
         let content = fs.readFileSync(geminiRulePath, 'utf-8');
@@ -228,7 +252,7 @@ async function setup() {
         // console.log(`✅ Configured GEMINI.md with Agent Name & Industry context.`); // Suppress simple log
     }
 
-    // 3. Localize Workflows
+    // 3. Localize Workflows (Kept logic index same for simplicity, technically step 9 now)
     localizeWorkflows(lang);
 
     // FINAL SUMMARY (Premium Style)
