@@ -232,6 +232,14 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 `;
   fs.writeFileSync(path.join(projectPath, '.editorconfig'), editorConfig);
+
+  // Generate .gitattributes
+  const gitAttributes = `* text=auto eol=lf
+*.js text eol=lf
+*.sh text eol=lf
+bin/* text eol=lf
+`;
+  fs.writeFileSync(path.join(projectPath, '.gitattributes'), gitAttributes);
 }
 
 function generateGeminiMd(rules, language = 'en', industry = 'other', agentName = 'Antigravity') {
