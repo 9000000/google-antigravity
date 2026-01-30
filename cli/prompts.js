@@ -205,41 +205,44 @@ async function getProjectConfig(skipPrompts = false, predefinedName = null) {
   // Combine all valid workflows
   // Filter to ensure we only include workflows that actually exist in our system
   const availableWorkflows = [
-    'brainstorm', 'create', 'debug', 'deploy', 'enhance', 
-    'orchestrate', 'plan', 'preview', 'status', 'test', 'ui-ux-pro-max'
+    'audit', 'brainstorm', 'create', 'debug', 'deploy', 'document', 'enhance', 
+    'monitor', 'onboard', 'orchestrate', 'plan', 'preview', 'security', 'seo', 
+    'status', 'test', 'ui-ux-pro-max'
   ];
 
   /* 
     Smart Logic:
-    - Always include: git (internal), plan, status
-    - If 'webdev' skill -> add 'enhance', 'test', 'ui-ux-pro-max'
-    - If 'mobile' skill -> add 'test', 'enhance'
-    - If 'devops' skill -> add 'deploy', 'orchestrate'
+    - Always include: git (internal), plan, status, debug, enhance
+    - Add Industry-specific workflows (specificWorkflows)
+    - Add Skill-based workflows
   */
   
-  const finalWorkflows = new Set(['plan', 'status', 'brainstorm']); // Always start with these
+  const finalWorkflows = new Set(['plan', 'status', 'brainstorm', 'debug', 'enhance']); 
+
+  // Add industry-specific workflows
+  if (specificWorkflows && Array.isArray(specificWorkflows)) {
+    specificWorkflows.forEach(w => {
+      // Only add if it's a valid workflow (exists in availableWorkflows)
+      if (availableWorkflows.includes(w)) {
+        finalWorkflows.add(w);
+      }
+    });
+  }
 
   // Logic based on Skill Categories (users selected implicitly or explicitly)
   // Since we load ALL skills by default for industry presets, we infer based on Industry
   
   if (basics.industryDomain === 'personal' || basics.industryDomain === 'fnb') {
     finalWorkflows.add('ui-ux-pro-max');
-    finalWorkflows.add('enhance');
   }
 
   if (basics.industryDomain === 'finance' || basics.industryDomain === 'healthcare') {
-    finalWorkflows.add('test');
     finalWorkflows.add('orchestrate'); // For complex logic
   }
 
   if (basics.industryDomain === 'logistics' || basics.industryDomain === 'other') {
     finalWorkflows.add('create');
-    finalWorkflows.add('debug');
   }
-
-  // Add highly versatile workflows to everyone
-  finalWorkflows.add('debug');
-  finalWorkflows.add('enhance');
 
   const settings = {
     template: 'standard',
