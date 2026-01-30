@@ -6,6 +6,7 @@
 > *Transform your AI from a chatbot into a professional Specialist Squad with standard operating procedures.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/antigravity-ide.svg)](https://badge.fury.io/js/antigravity-ide)
 
 **Google Antigravity** is more than just a skill collection; it is a comprehensive **Orchestration Framework**. it provides an "AI Battlefield" environment where AI agents collaborate through a professional production line (PDCA), ensuring every line of code is audited and optimized.
 
