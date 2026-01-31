@@ -10,6 +10,7 @@
     "antigravity-update": "./update.js"
   },
   "scripts": {
+    "test": "jest",
     "setup": "node ./setup.js",
     "update": "node ./update.js"
   },
@@ -22,6 +23,9 @@
     "ora": "^5.4.1",
     "prompts": "^2.4.2",
     "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
   },
   "repository": {
     "type": "git",

@@ -296,7 +296,7 @@ bin/* text eol=lf
         console.log(chalk.green('  ✓ Created .gitattributes'));
     }
 }
-}
+
 
 function generateGeminiMd(rules, language = 'en', industry = 'other', agentName = 'Antigravity') {
     const strictness = {
