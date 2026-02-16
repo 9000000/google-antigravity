@@ -206,6 +206,7 @@ const MANIFEST = {
             'agent-backend-patterns',
             'agent-code-guide',
             'agent-frontend-patterns',
+            'agent-orchestration',
             'agent-project-guidelines-example',
             'agent-security-review',
             'ai-engineer',

@@ -103,10 +103,10 @@ describe('CLI E2E Stress Test (10 Scenarios)', () => {
             // Verification
             expect(fs.existsSync(projectPath)).toBe(true);
             expect(fs.existsSync(path.join(projectPath, 'package.json'))).toBe(true);
-            expect(fs.existsSync(path.join(projectPath, '.agent', 'GEMINI.md'))).toBe(true);
+            expect(fs.existsSync(path.join(projectPath, 'GEMINI.md'))).toBe(true);
             
             // Check GEMINI.md content matches config
-            const geminiContent = fs.readFileSync(path.join(projectPath, '.agent', 'GEMINI.md'), 'utf-8');
+            const geminiContent = fs.readFileSync(path.join(projectPath, 'GEMINI.md'), 'utf-8');
             const langMarker = scenario.lang === 'vi' ? 'Giao thức Ngôn ngữ' : 'Language Protocol';
             expect(geminiContent).toContain(langMarker);
 
