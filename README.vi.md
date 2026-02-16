@@ -11,17 +11,23 @@
   > Đây không phải là trình soạn thảo code — Đây là **Hệ điều hành Tư duy** giúp nạp tiêu chuẩn chuyên nghiệp (PDCA, Security, Architecture) trực tiếp vào não bộ AI.
 </div>
 
-[![npm version](https://img.shields.io/npm/v/antigravity-ide?color=red)](https://badge.fury.io/js/antigravity-ide)
-[![License: MIT](https://img.shields.io/badge/License-MIT-orange)](https://opensource.org/licenses/MIT)
-[![Downloads](https://img.shields.io/npm/dm/antigravity-ide?color=yellow)](https://npmjs.com/package/antigravity-ide)
-[![GitHub stars](https://img.shields.io/github/stars/Dokhacgiakhoa/antigravity-ide?color=green)](https://github.com/Dokhacgiakhoa/antigravity-ide/stargazers)
-[![Contributors](https://img.shields.io/github/contributors/Dokhacgiakhoa/antigravity-ide?color=blue)](https://github.com/Dokhacgiakhoa/antigravity-ide/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/Dokhacgiakhoa/antigravity-ide?color=blueviolet)](https://github.com/Dokhacgiakhoa/antigravity-ide/commits/main)
-[![Code Size](https://img.shields.io/github/languages/code-size/Dokhacgiakhoa/antigravity-ide?color=ff69b4)](https://github.com/Dokhacgiakhoa/antigravity-ide)
+<div align="center">
+  [![npm version](https://img.shields.io/npm/v/antigravity-ide?color=red)](https://badge.fury.io/js/antigravity-ide)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-orange)](https://opensource.org/licenses/MIT)
+  [![Downloads](https://img.shields.io/npm/dm/antigravity-ide?color=yellow)](https://npmjs.com/package/antigravity-ide)
+  [![GitHub stars](https://img.shields.io/github/stars/Dokhacgiakhoa/antigravity-ide?color=green)](https://github.com/Dokhacgiakhoa/antigravity-ide/stargazers)
+  [![Contributors](https://img.shields.io/github/contributors/Dokhacgiakhoa/antigravity-ide?color=blue)](https://github.com/Dokhacgiakhoa/antigravity-ide/graphs/contributors)
+  [![Last Commit](https://img.shields.io/github/last-commit/Dokhacgiakhoa/antigravity-ide?color=blueviolet)](https://github.com/Dokhacgiakhoa/antigravity-ide/commits/main)
+  [![Code Size](https://img.shields.io/github/languages/code-size/Dokhacgiakhoa/antigravity-ide?color=ff69b4)](https://github.com/Dokhacgiakhoa/antigravity-ide)
+</div>
+
+<div align="center">
 
 | **573** Skills | **38** Specialist Agents | **33** Patterns | **25** Rules | **20** Shared Libs |
 | :---: | :---: | :---: | :---: | :---: |
 | Enterprise Standard | Role-Based Personas | PDCA Cycle | Security Armor | Shared Knowledge |
+
+</div>
 
 ---
 
@@ -128,11 +134,15 @@ npx antigravity-ide update
 
 ## 📊 Resource Matrix (Chỉ số tài nguyên)
 
+<div align="center">
+
 | Chế độ (Mode) | Skills | Agents | Workflows | Rules | Shared Modules |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **🌿 ECO** | 151 | 5 | 6 | 2 | 3 |
 | **🏢 PRO** | 296 | 10 | 11 | 5 | 10 |
 | **🌌 ULTRA** | 573 | 38 | 33 | 25 | 20 |
+
+</div>
 
 ## 📂 Project Structure
 
