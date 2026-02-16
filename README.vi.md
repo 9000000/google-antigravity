@@ -15,10 +15,10 @@
   [![npm version](https://img.shields.io/npm/v/antigravity-ide?color=red)](https://badge.fury.io/js/antigravity-ide)
   [![License: MIT](https://img.shields.io/badge/License-MIT-orange)](https://opensource.org/licenses/MIT)
   [![Downloads](https://img.shields.io/npm/dm/antigravity-ide?color=yellow)](https://npmjs.com/package/antigravity-ide)
-  [![GitHub stars](https://img.shields.io/github/stars/Dokhacgiakhoa/antigravity-ide?color=green)](https://github.com/Dokhacgiakhoa/antigravity-ide/stargazers)
-  [![Contributors](https://img.shields.io/github/contributors/Dokhacgiakhoa/antigravity-ide?color=blue)](https://github.com/Dokhacgiakhoa/antigravity-ide/graphs/contributors)
-  [![Last Commit](https://img.shields.io/github/last-commit/Dokhacgiakhoa/antigravity-ide?color=blueviolet)](https://github.com/Dokhacgiakhoa/antigravity-ide/commits/main)
-  [![Code Size](https://img.shields.io/github/languages/code-size/Dokhacgiakhoa/antigravity-ide?color=ff69b4)](https://github.com/Dokhacgiakhoa/antigravity-ide)
+  [![GitHub stars](https://img.shields.io/github/stars/Dokhacgiakhoa/google-antigravity?color=green)](https://github.com/Dokhacgiakhoa/google-antigravity/stargazers)
+  [![Contributors](https://img.shields.io/github/contributors/Dokhacgiakhoa/google-antigravity?color=blue)](https://github.com/Dokhacgiakhoa/google-antigravity/graphs/contributors)
+  [![Last Commit](https://img.shields.io/github/last-commit/Dokhacgiakhoa/google-antigravity?color=blueviolet)](https://github.com/Dokhacgiakhoa/google-antigravity/commits/main)
+  [![Code Size](https://img.shields.io/github/languages/code-size/Dokhacgiakhoa/google-antigravity?color=ff69b4)](https://github.com/Dokhacgiakhoa/google-antigravity)
 </div>
 
 <div align="center">
