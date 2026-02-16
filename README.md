@@ -19,9 +19,9 @@
 [![Last Commit](https://img.shields.io/github/last-commit/Dokhacgiakhoa/antigravity-ide?color=blueviolet)](https://github.com/Dokhacgiakhoa/antigravity-ide/commits/main)
 [![Code Size](https://img.shields.io/github/languages/code-size/Dokhacgiakhoa/antigravity-ide?color=ff69b4)](https://github.com/Dokhacgiakhoa/antigravity-ide)
 
-| **573** Skills | **38** Specialist Agents | **33** Workflows |
-| :---: | :---: | :---: |
-| Enterprise Patterns | Role-Based Personas | PDCA Cycle |
+| **573** Skills | **38** Specialist Agents | **33** Patterns | **25** Rules | **20** Shared Libs |
+| :---: | :---: | :---: | :---: | :---: |
+| Enterprise Patterns | Role-Based Personas | PDCA Cycle | Security Armor | Shared Knowledge |
 
 ---
 
